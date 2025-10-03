@@ -1,0 +1,14 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    container_name: 3agr1-postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass123
+      POSTGRES_DB: 3agr1
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
