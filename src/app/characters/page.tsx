@@ -4,14 +4,18 @@ import db from "@/shared/lib/db";
 import Link from "next/link";
 
 export default async function CharactersPage() {
-  const records = await db.character.findMany();
-
-  await db.character.create({
-    data: {
-      name: "Test 3",
-      status: "alive",
+  const records = await db.character.findMany({
+    orderBy: {
+      createdAt: "desc",
     },
   });
+
+  // await db.character.create({
+  //   data: {
+  //     name: "Test 3",
+  //     status: "alive",
+  //   },
+  // });
 
   // const response = await fetchCharacters();
   // const characters = response.results;
