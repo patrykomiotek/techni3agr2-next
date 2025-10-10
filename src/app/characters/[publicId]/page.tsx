@@ -2,16 +2,16 @@ import db from "@/shared/lib/db";
 import { notFound } from "next/navigation";
 
 type Props = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ publicId: string }>;
 };
 
 export default async function CharacterDetails({ params }: Props) {
-  const { id } = await params;
+  const { publicId } = await params;
 
   // try {
   const character = await db.character.findUniqueOrThrow({
     where: {
-      id: parseInt(id, 10),
+      publicId: publicId,
     },
   });
   // } catch {
