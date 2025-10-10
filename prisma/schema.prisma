@@ -16,6 +16,7 @@ datasource db {
 
 model Character {
   id     Int    @id @default(autoincrement())
+  // publicId String @unique @default(uuid()) @map("public_id") @db.Uuid
   name   String
   status String
 
