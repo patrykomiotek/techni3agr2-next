@@ -7,9 +7,16 @@ import {
 } from "../contracts/characters.dto";
 
 export const createCharacter = async (data: CreateCharacterDto) => {
-  createCharacterSchema.parse(data);
+  // 1. parse -> throw new Error
+  // createCharacterSchema.parse(data);
 
-  return await db.character.create({
-    data,
-  });
+  const validationResult = createCharacterSchema.safeParse(data);
+
+  if (!validationResult.success) {
+    // error
+  } else {
+    return await db.character.create({
+      data,
+    });
+  }
 };
