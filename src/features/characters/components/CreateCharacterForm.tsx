@@ -2,6 +2,8 @@
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-toastify";
+
 import {
   CreateCharacterDto,
   createCharacterSchema,
@@ -23,6 +25,7 @@ export const CreateCharacterForm = () => {
     console.log({ data });
     // save to the db
     await createCharacter(data);
+    toast.success("Great success!");
     push("/characters");
   };
 

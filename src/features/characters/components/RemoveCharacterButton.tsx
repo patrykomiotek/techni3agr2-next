@@ -2,6 +2,7 @@
 
 import { Character } from "@prisma/client";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 import { Button } from "@/shared/components/Button";
 import { removeCharacter } from "../services/removeCharacter";
@@ -15,6 +16,7 @@ export const RemoveCharacterButton = ({ publicId }: Props) => {
 
   const handleClick = async () => {
     await removeCharacter(publicId);
+    toast.success("Character removed");
     refresh();
   };
 
