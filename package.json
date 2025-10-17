@@ -12,6 +12,7 @@
     "@hookform/resolvers": "^5.2.2",
     "@prisma/client": "^6.16.3",
     "axios": "^1.12.2",
+    "browser-use-sdk": "^2.0.4",
     "next": "15.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
