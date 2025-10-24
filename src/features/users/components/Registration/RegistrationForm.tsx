@@ -20,8 +20,8 @@ export const RegistrationForm = () => {
       name: formData.name, // required
       email: formData.email, // required
       password: formData.password, // required
-      image: "https://example.com/image.png",
-      callbackURL: "https://example.com/callback",
+      // image: "https://example.com/image.png",
+      // callbackURL: "https://example.com/callback",
     });
   };
 

@@ -11,5 +11,6 @@ export const auth = betterAuth({
   database: prismaAdapter(db, {
     provider: "postgresql", // or "mysql", "postgresql", ...etc
   }),
+  trustedOrigins: ["http://localhost:3000"],
   plugins: [nextCookies()], // make sure this is the last plugin in the array
 });
