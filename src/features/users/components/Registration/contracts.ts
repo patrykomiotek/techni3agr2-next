@@ -7,3 +7,10 @@ export const createUserSchema = z.object({
 });
 
 export type CreateUserDto = z.infer<typeof createUserSchema>;
+
+export const loginUserSchema = z.object({
+  email: z.email({ error: "E-mail is required" }),
+  password: z.string().min(1, { error: "Password is required" }),
+});
+
+export type LoginUserDto = z.infer<typeof loginUserSchema>;
