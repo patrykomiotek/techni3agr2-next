@@ -21,8 +21,9 @@ export const RegistrationForm = () => {
       email: formData.email, // required
       password: formData.password, // required
       // image: "https://example.com/image.png",
-      // callbackURL: "https://example.com/callback",
+      callbackURL: "/",
     });
+    console.error({ error });
   };
 
   return (
