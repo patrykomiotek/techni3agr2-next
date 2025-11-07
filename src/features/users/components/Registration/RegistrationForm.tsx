@@ -28,6 +28,7 @@ export const RegistrationForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleUserSignUp)} className="space-y-2">
+      {/* <Input label="E-mail" type="email" error={error.email} /> */}
       <div className="flex flex-col">
         <label htmlFor="name">Name</label>
         <input
@@ -35,6 +36,7 @@ export const RegistrationForm = () => {
           {...register("name")}
           className="outline rounded-sm p-1 outline-slate-700 focus:outline-white"
         />
+        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
       </div>
       <div className="flex flex-col">
         <label htmlFor="email">E-mail</label>
@@ -43,6 +45,7 @@ export const RegistrationForm = () => {
           {...register("email")}
           className="outline rounded-sm p-1 outline-slate-700 focus:outline-white"
         />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
       <div className="flex flex-col">
         <label htmlFor="password">Password</label>
@@ -52,6 +55,9 @@ export const RegistrationForm = () => {
           {...register("password")}
           className="outline rounded-sm p-1 outline-slate-700 focus:outline-white"
         />
+        {errors.password && (
+          <p className="text-red-500">{errors.password.message}</p>
+        )}
       </div>
       <div className="mt-4">
         <button

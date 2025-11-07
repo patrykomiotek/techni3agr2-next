@@ -33,6 +33,7 @@ export const LoginForm = () => {
           {...register("email")}
           className="outline rounded-sm p-1 outline-slate-700 focus:outline-white"
         />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
       <div className="flex flex-col">
         <label htmlFor="password">Password</label>
@@ -42,6 +43,9 @@ export const LoginForm = () => {
           {...register("password")}
           className="outline rounded-sm p-1 outline-slate-700 focus:outline-white"
         />
+        {errors.password && (
+          <p className="text-red-500">{errors.password.message}</p>
+        )}
       </div>
       <div className="mt-4">
         <button
