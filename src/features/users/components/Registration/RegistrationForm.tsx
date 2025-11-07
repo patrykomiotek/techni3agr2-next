@@ -28,7 +28,9 @@ export const RegistrationForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleUserSignUp)} className="space-y-2">
-      {/* <Input label="E-mail" type="email" error={error.email} /> */}
+      {/* <Input label="Name" error={errors.name} /> */}
+      {/* <Input label="E-mail" type="email" error={errors.email} /> */}
+      {/* <Input label="Password" type="password" error={errors.email} /> */}
       <div className="flex flex-col">
         <label htmlFor="name">Name</label>
         <input
