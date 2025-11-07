@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { LoginUserDto, loginUserSchema } from "./contracts";
 import { authClient } from "@/shared/lib/auth-client";
+import { Input } from "@/shared/components/Input";
 
 export const LoginForm = () => {
   const {
@@ -26,7 +27,9 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleUserSignUp)} className="space-y-2">
-      <div className="flex flex-col">
+      <Input label="E-mail" type="email" {...register("email")} />
+      <Input label="Password" type="password" {...register("password")} />
+      {/* <div className="flex flex-col">
         <label htmlFor="email">E-mail</label>
         <input
           id="email"
@@ -46,7 +49,7 @@ export const LoginForm = () => {
         {errors.password && (
           <p className="text-red-500">{errors.password.message}</p>
         )}
-      </div>
+      </div> */}
       <div className="mt-4">
         <button
           type="submit"

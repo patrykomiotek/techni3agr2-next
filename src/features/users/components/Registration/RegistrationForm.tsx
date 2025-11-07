@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { CreateUserDto, createUserSchema } from "./contracts";
 import { authClient } from "@/shared/lib/auth-client";
+import { Input } from "@/shared/components/Input";
 
 export const RegistrationForm = () => {
   const {
@@ -16,6 +17,7 @@ export const RegistrationForm = () => {
   });
 
   const handleUserSignUp: SubmitHandler<CreateUserDto> = async (formData) => {
+    console.log({ formData });
     const { data, error } = await authClient.signUp.email({
       name: formData.name, // required
       email: formData.email, // required
@@ -28,10 +30,20 @@ export const RegistrationForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleUserSignUp)} className="space-y-2">
-      {/* <Input label="Name" error={errors.name} /> */}
-      {/* <Input label="E-mail" type="email" error={errors.email} /> */}
-      {/* <Input label="Password" type="password" error={errors.email} /> */}
-      <div className="flex flex-col">
+      <Input label="Name" {...register("name")} error={errors.name} />
+      <Input
+        label="E-mail"
+        {...register("email")}
+        type="email"
+        error={errors.email}
+      />
+      <Input
+        label="Password"
+        {...register("password")}
+        type="password"
+        error={errors.email}
+      />
+      {/* <div className="flex flex-col">
         <label htmlFor="name">Name</label>
         <input
           id="name"
@@ -60,7 +72,7 @@ export const RegistrationForm = () => {
         {errors.password && (
           <p className="text-red-500">{errors.password.message}</p>
         )}
-      </div>
+      </div> */}
       <div className="mt-4">
         <button
           type="submit"
