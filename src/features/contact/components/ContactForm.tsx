@@ -5,6 +5,7 @@ import { ContactDto, contactSchema } from '../contracts/contact.dto';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from '@/shared/components/Input';
 import { Button } from '@/shared/components/Button';
+import { sendContactEmail } from '../services/send-contact-email';
 
 export const ContactForm = () => {
   const {
@@ -16,7 +17,8 @@ export const ContactForm = () => {
   });
 
   const handleContactSubmit: SubmitHandler<ContactDto> = async (data) => {
-    // await sendContactEmail(data)
+    console.log({ data });
+    await sendContactEmail(data);
   };
 
   return (
