@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from '@/shared/components/Input';
 import { Button } from '@/shared/components/Button';
 import { sendContactEmail } from '../services/send-contact-email';
+import { toast } from 'react-toastify';
 
 export const ContactForm = () => {
   const {
@@ -18,7 +19,12 @@ export const ContactForm = () => {
 
   const handleContactSubmit: SubmitHandler<ContactDto> = async (data) => {
     console.log({ data });
-    await sendContactEmail(data);
+    const result = await sendContactEmail(data);
+    if (result.success) {
+      toast.success('Success!');
+    } else {
+      toast.error('Error!');
+    }
   };
 
   return (
