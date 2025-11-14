@@ -2,7 +2,8 @@
 
 import { CreateEmailResponseSuccess, Resend } from 'resend';
 import { ContactDto } from '../contracts/contact.dto';
-import { success } from 'zod';
+// import Email from '../../../../emails/my-email';
+import TestEmail from '@/emails/test-email';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -24,6 +25,7 @@ export const sendContactEmail = async (
     to: data.email,
     subject: data.subject,
     html: `<p>${data.content}</p>`,
+    // react: TestEmail({ content: data.content }),
   });
 
   if (result.error) {
