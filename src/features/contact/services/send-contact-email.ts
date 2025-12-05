@@ -24,8 +24,8 @@ export const sendContactEmail = async (
     from: 'Powiadomienia <noreply@updates.webamigos.pl>',
     to: data.email,
     subject: data.subject,
-    html: `<p>${data.content}</p>`,
-    // react: TestEmail({ content: data.content }),
+    // html: `<p>${data.content}</p>`,
+    react: TestEmail({ content: data.content }),
   });
 
   if (result.error) {
